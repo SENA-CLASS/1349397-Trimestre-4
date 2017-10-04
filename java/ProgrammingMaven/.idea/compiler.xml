@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="co.edu.sena.programming.lesson07" />
+        <module name="co.edu.sena.programming.lesson08" />
+        <module name="co.edu.sena.programming.lesson09" />
+        <module name="co.edu.sena.programming.lesson10" />
+        <module name="ProgrammingMaven" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="co.edu.sena.programming.lesson07" target="9" />
+      <module name="co.edu.sena.programming.lesson08" target="9" />
+      <module name="co.edu.sena.programming.lesson09" target="1.5" />
+      <module name="co.edu.sena.programming.lesson10" target="1.5" />
+      <module name="ProgrammingMaven" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

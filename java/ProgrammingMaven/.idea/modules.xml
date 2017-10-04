@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProgrammingMaven.iml" filepath="$PROJECT_DIR$/ProgrammingMaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/co.edu.sena.programming.lesson07/co.edu.sena.programming.lesson07.iml" filepath="$PROJECT_DIR$/co.edu.sena.programming.lesson07/co.edu.sena.programming.lesson07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/co.edu.sena.programming.lesson08/co.edu.sena.programming.lesson08.iml" filepath="$PROJECT_DIR$/co.edu.sena.programming.lesson08/co.edu.sena.programming.lesson08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/co.edu.sena.programming.lesson09/co.edu.sena.programming.lesson09.iml" filepath="$PROJECT_DIR$/co.edu.sena.programming.lesson09/co.edu.sena.programming.lesson09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/co.edu.sena.programming.lesson10/co.edu.sena.programming.lesson10.iml" filepath="$PROJECT_DIR$/co.edu.sena.programming.lesson10/co.edu.sena.programming.lesson10.iml" />
+    </modules>
+  </component>
+</project>
