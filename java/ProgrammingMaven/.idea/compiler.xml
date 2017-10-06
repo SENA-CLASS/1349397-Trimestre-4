@@ -10,6 +10,7 @@
         <module name="co.edu.sena.programming.lesson08" />
         <module name="co.edu.sena.programming.lesson09" />
         <module name="co.edu.sena.programming.lesson10" />
+        <module name="co.edu.sena.programming.lesson11" />
         <module name="ProgrammingMaven" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="co.edu.sena.programming.lesson08" target="9" />
       <module name="co.edu.sena.programming.lesson09" target="1.5" />
       <module name="co.edu.sena.programming.lesson10" target="1.5" />
+      <module name="co.edu.sena.programming.lesson11" target="1.5" />
       <module name="ProgrammingMaven" target="1.5" />
     </bytecodeTargetLevel>
   </component>

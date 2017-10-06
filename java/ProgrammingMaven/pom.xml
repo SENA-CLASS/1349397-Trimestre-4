@@ -13,6 +13,7 @@
         <module>co.edu.sena.programming.lesson08</module>
         <module>co.edu.sena.programming.lesson09</module>
         <module>co.edu.sena.programming.lesson10</module>
+        <module>co.edu.sena.programming.lesson11</module>
     </modules>
 
     <build>
