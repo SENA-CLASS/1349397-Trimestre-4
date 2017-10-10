@@ -8,6 +8,12 @@
     <artifactId>programmingmaven</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <modules>
         <module>co.edu.sena.programming.lesson07</module>
         <module>co.edu.sena.programming.lesson08</module>
@@ -23,25 +29,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.2</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-toolchains-plugin</artifactId>
-                <version>1.1</version>
-                <configuration>
-                    <toolchains>
-                        <jdk>
-                            <version>1.9</version>
-                        </jdk>
-                    </toolchains>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>toolchain</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
 
