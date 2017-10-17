@@ -33,3 +33,9 @@ hs_err_pid*
 /java/Nueva Carpeta/Ejemplo01ANT/build/
 /java/Nueva Carpeta/Ejemplo01MAVEN/target/
 /java/Nueva Carpeta/Ejemplo01MAVEN/nbproject/
+java/JDBC/ejemplodao/target/surefire-reports/co.edu.sena.ejemplodao.controller.dao.mysql.MysqlClienteDAOTest.txt
+java/JDBC/ejemplodao/target/surefire-reports/TEST-co.edu.sena.ejemplodao.controller.dao.mysql.MysqlClienteDAOTest.xml
+java/JDBC/ejemplodao/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+java/JDBC/ejemplodao/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+java/JDBC/ejemplodao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+java/JDBC/ejemplodao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst

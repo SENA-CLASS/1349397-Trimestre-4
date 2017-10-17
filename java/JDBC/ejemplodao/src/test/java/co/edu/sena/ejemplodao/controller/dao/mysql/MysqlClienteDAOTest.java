@@ -2,14 +2,13 @@ package co.edu.sena.ejemplodao.controller.dao.mysql;
 
 import co.edu.sena.ejemplodao.controller.dao.ClienteDAO;
 import co.edu.sena.ejemplodao.controller.factory.ClienteDAOFactory;
+import co.edu.sena.ejemplodao.controller.factory.mysql.MysqlClienteDAOFactory;
 import co.edu.sena.ejemplodao.modelo.dto.ClienteDTO;
 import co.edu.sena.ejemplodao.modelo.dto.ClientePkDTO;
-import com.sun.jmx.remote.util.OrderClassLoaders;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
 import java.util.List;
@@ -60,7 +59,8 @@ public class MysqlClienteDAOTest {
     @Test
     public void test1Insert() {
         System.out.println("prueba del insert de clienteDAO");
-        ClienteDAO dao = ClienteDAOFactory.create();
+        ClienteDAOFactory factory = new MysqlClienteDAOFactory();
+        ClienteDAO dao = factory.create();
         assertEquals(dao.insert(cliente),1);
 
     }
@@ -68,7 +68,8 @@ public class MysqlClienteDAOTest {
     @Test
     public void test2FindPk() {
         System.out.println("prueba del búsqueda llave primaria de clienteDAo");
-        ClienteDAO dao = ClienteDAOFactory.create();
+        ClienteDAOFactory factory = new MysqlClienteDAOFactory();
+        ClienteDAO dao = factory.create();
         ClienteDTO consulta = dao.findPk(llave);
         assertEquals(consulta, cliente);
     }
@@ -76,21 +77,24 @@ public class MysqlClienteDAOTest {
     @Test
     public void test3Update() {
         System.out.println("prueba del update de clienteDAo");
-        ClienteDAO dao = ClienteDAOFactory.create();
+        ClienteDAOFactory factory = new MysqlClienteDAOFactory();
+        ClienteDAO dao = factory.create();
         assertEquals(dao.update(cliente2, llave),1);
     }
 
     @Test
     public void test4Delete() {
         System.out.println("prueba del delete de clienteDAo");
-        ClienteDAO dao = ClienteDAOFactory.create();
+        ClienteDAOFactory factory = new MysqlClienteDAOFactory();
+        ClienteDAO dao = factory.create();
         assertEquals(dao.delete(llave2),1);
     }
 
     @Test
     public void test5FindAll() {
         System.out.println("prueba del select * de clienteDAo");
-        ClienteDAO dao = ClienteDAOFactory.create();
+        ClienteDAOFactory factory = new MysqlClienteDAOFactory();
+        ClienteDAO dao = factory.create();
         List<ClienteDTO> consulta = (List<ClienteDTO>) dao.findAll();
         assertTrue(!consulta.isEmpty());
     }
