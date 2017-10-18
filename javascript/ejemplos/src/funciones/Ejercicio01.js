@@ -8,3 +8,9 @@ function retorneUltimoDigito(variable) {
 alert(retorneUltimoDigito(numero));
 
 Number.parseInt()
+
+
+function imprimir() {
+    let a,b;
+    return a+b;
+}
