@@ -21,12 +21,12 @@ public class MysqlClienteDAO implements ClienteDAO {
     public int insert(ClienteDTO cliente) {
         int cambios=0;
         String sqlInsert = "INSERT INTO " + getTableName() +
-                "(`tipo_documento`,\n" +
-                "`numero_documento`,\n" +
-                "`primer_nombre`,\n" +
-                "`segundo_nombre`,\n" +
-                "`primer_apellido`,\n" +
-                "`segundo_apellido`\n" +
+                "(tipo_documento,\n" +
+                "numero_documento,\n" +
+                "primer_nombre,\n" +
+                "segundo_nombre,\n" +
+                "primer_apellido,\n" +
+                "segundo_apellido\n" +
                 ")\n" +
                 "VALUES\n" +
                 "(?,?,?,?,?,?);";
@@ -169,7 +169,7 @@ public class MysqlClienteDAO implements ClienteDAO {
     }
 
     private String getTableName() {
-        return "observador_de_proyectos.cliente";
+        return "cliente ";
     }
 
 }

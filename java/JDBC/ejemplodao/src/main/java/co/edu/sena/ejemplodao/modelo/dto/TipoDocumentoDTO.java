@@ -7,7 +7,7 @@ public class TipoDocumentoDTO implements java.io.Serializable {
     private static long serialVersionUID = 43L;
     private String documento;
     private String descripcion;
-    private byte estado;
+    private boolean estado;
 
     public TipoDocumentoDTO() {
     }
@@ -28,11 +28,11 @@ public class TipoDocumentoDTO implements java.io.Serializable {
         this.descripcion = descripcion;
     }
 
-    public byte getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(byte estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 

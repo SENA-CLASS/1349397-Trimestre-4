@@ -18,10 +18,10 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MysqlClienteDAOTest {
 
-    ClienteDTO cliente;
-    ClienteDTO cliente2;
-    ClientePkDTO llave;
-    ClientePkDTO llave2;
+    private ClienteDTO cliente;
+    private ClienteDTO cliente2;
+    private ClientePkDTO llave;
+    private ClientePkDTO llave2;
 
     @Before
     public void setUp() throws Exception {
