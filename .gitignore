@@ -43,3 +43,14 @@ java/JDBC/ejemplodao/target/maven-status/maven-compiler-plugin/compile/default-c
 /java/JPA/Ejemplo01JPA/nbproject/
 java/JDBC/jdbc/target/test-classes/.netbeans_automatic_build
 java/JDBC/jdbc/target/classes/.netbeans_automatic_build
+/java/JPA/Ejemplo01JPAANT/nbproject/private/
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavesforaneas/TipoDocumento_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavesforaneas/Cliente_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavesforaneas/ClientePk_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavecompuesta2/Estudiante_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavecompuesta2/EstudiantePk_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavecompuesta/Cliente_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/llavecompuesta/Cliente2_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/Televisor_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/Casco_.java
+java/JPA/Ejemplojpa02/target/classes/META-INF/persistence.xml
