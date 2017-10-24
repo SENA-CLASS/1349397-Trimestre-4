@@ -40,89 +40,6 @@ public class EmployeeTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getId method, of class Employee.
-     */
-    @org.junit.Test
-    public void testGetId() {
-        System.out.println("getId");
-        Employee instance = new Employee();
-        int expResult = 0;
-        int result = instance.getId();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setId method, of class Employee.
-     */
-    @org.junit.Test
-    public void testSetId() {
-        System.out.println("setId");
-        int id = 0;
-        Employee instance = new Employee();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getName method, of class Employee.
-     */
-    @org.junit.Test
-    public void testGetName() {
-        System.out.println("getName");
-        Employee instance = new Employee();
-        String expResult = "";
-        String result = instance.getName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setName method, of class Employee.
-     */
-    @org.junit.Test
-    public void testSetName() {
-        System.out.println("setName");
-        String name = "";
-        Employee instance = new Employee();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getSalary method, of class Employee.
-     */
-    @org.junit.Test
-    public void testGetSalary() {
-        System.out.println("getSalary");
-        Employee instance = new Employee();
-        long expResult = 0L;
-        long result = instance.getSalary();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setSalary method, of class Employee.
-     */
-    @org.junit.Test
-    public void testSetSalary() {
-        
-        System.out.println("setSalary");
-        long salary = 0L;
-        Employee instance = new Employee();
-        instance.setSalary(salary);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
-    
     @Test
     public void test1Insert(){
         Employee e1 = new Employee();
@@ -137,10 +54,6 @@ public class EmployeeTest {
         em.getTransaction().begin();
         em.persist(e1);
         em.getTransaction().commit();
-        
-        
-        
-        
         
     }
     
