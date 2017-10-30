@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ListaChequeoDao;
+import co.edu.sena.controller.dao.ListaChequeoDao;
 import co.edu.sena.model.dao.dto.ListaChequeo;
-import co.edu.sena.model.dao.exceptions.ListaChequeoDaoException;
-import co.edu.sena.model.dao.factory.ListaChequeoDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ListaChequeoDaoException;
+import co.edu.sena.controller.factory.ListaChequeoDaoFactory;
 
 public class ListaChequeoDaoSample
 {

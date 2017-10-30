@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ObservacionItemDao;
+import co.edu.sena.controller.dao.ObservacionItemDao;
 import co.edu.sena.model.dao.dto.ObservacionItem;
-import co.edu.sena.model.dao.exceptions.ObservacionItemDaoException;
-import co.edu.sena.model.dao.factory.ObservacionItemDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ObservacionItemDaoException;
+import co.edu.sena.controller.factory.ObservacionItemDaoFactory;
 
 public class ObservacionItemDaoSample
 {

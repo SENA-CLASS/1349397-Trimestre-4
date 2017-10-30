@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ServidorCorreoElectronicoDao;
+import co.edu.sena.controller.dao.ServidorCorreoElectronicoDao;
 import co.edu.sena.model.dao.dto.ServidorCorreoElectronico;
-import co.edu.sena.model.dao.exceptions.ServidorCorreoElectronicoDaoException;
-import co.edu.sena.model.dao.factory.ServidorCorreoElectronicoDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ServidorCorreoElectronicoDaoException;
+import co.edu.sena.controller.factory.ServidorCorreoElectronicoDaoFactory;
 
 public class ServidorCorreoElectronicoDaoSample
 {

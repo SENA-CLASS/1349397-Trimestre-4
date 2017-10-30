@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.RaeHasTrimestreDao;
+import co.edu.sena.controller.dao.RaeHasTrimestreDao;
 import co.edu.sena.model.dao.dto.RaeHasTrimestre;
-import co.edu.sena.model.dao.exceptions.RaeHasTrimestreDaoException;
-import co.edu.sena.model.dao.factory.RaeHasTrimestreDaoFactory;
+import co.edu.sena.controller.dao.exceptions.RaeHasTrimestreDaoException;
+import co.edu.sena.controller.factory.RaeHasTrimestreDaoFactory;
 
 public class RaeHasTrimestreDaoSample
 {

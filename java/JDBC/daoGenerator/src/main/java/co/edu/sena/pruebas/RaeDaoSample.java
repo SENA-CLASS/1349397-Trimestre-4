@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.RaeDao;
+import co.edu.sena.controller.dao.RaeDao;
 import co.edu.sena.model.dao.dto.Rae;
-import co.edu.sena.model.dao.exceptions.RaeDaoException;
-import co.edu.sena.model.dao.factory.RaeDaoFactory;
+import co.edu.sena.controller.dao.exceptions.RaeDaoException;
+import co.edu.sena.controller.factory.RaeDaoFactory;
 
 public class RaeDaoSample
 {

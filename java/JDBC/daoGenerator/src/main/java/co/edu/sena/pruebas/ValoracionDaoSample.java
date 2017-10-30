@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ValoracionDao;
+import co.edu.sena.controller.dao.ValoracionDao;
 import co.edu.sena.model.dao.dto.Valoracion;
-import co.edu.sena.model.dao.exceptions.ValoracionDaoException;
-import co.edu.sena.model.dao.factory.ValoracionDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ValoracionDaoException;
+import co.edu.sena.controller.factory.ValoracionDaoFactory;
 
 public class ValoracionDaoSample
 {

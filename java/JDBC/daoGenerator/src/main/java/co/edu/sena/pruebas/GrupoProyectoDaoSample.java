@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.GrupoProyectoDao;
+import co.edu.sena.controller.dao.GrupoProyectoDao;
 import co.edu.sena.model.dao.dto.GrupoProyecto;
-import co.edu.sena.model.dao.exceptions.GrupoProyectoDaoException;
-import co.edu.sena.model.dao.factory.GrupoProyectoDaoFactory;
+import co.edu.sena.controller.dao.exceptions.GrupoProyectoDaoException;
+import co.edu.sena.controller.factory.GrupoProyectoDaoFactory;
 
 public class GrupoProyectoDaoSample
 {

@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.CompetenciaDao;
+import co.edu.sena.controller.dao.CompetenciaDao;
 import co.edu.sena.model.dao.dto.Competencia;
-import co.edu.sena.model.dao.exceptions.CompetenciaDaoException;
-import co.edu.sena.model.dao.factory.CompetenciaDaoFactory;
+import co.edu.sena.controller.dao.exceptions.CompetenciaDaoException;
+import co.edu.sena.controller.factory.CompetenciaDaoFactory;
 
 public class CompetenciaDaoSample
 {

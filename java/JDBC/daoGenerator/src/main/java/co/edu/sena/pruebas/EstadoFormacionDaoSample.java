@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.EstadoFormacionDao;
+import co.edu.sena.controller.dao.EstadoFormacionDao;
 import co.edu.sena.model.dao.dto.EstadoFormacion;
-import co.edu.sena.model.dao.exceptions.EstadoFormacionDaoException;
-import co.edu.sena.model.dao.factory.EstadoFormacionDaoFactory;
+import co.edu.sena.controller.dao.exceptions.EstadoFormacionDaoException;
+import co.edu.sena.controller.factory.EstadoFormacionDaoFactory;
 
 public class EstadoFormacionDaoSample
 {

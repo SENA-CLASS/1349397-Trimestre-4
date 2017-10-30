@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ItemCheckerDao;
+import co.edu.sena.controller.dao.ItemCheckerDao;
 import co.edu.sena.model.dao.dto.ItemChecker;
-import co.edu.sena.model.dao.exceptions.ItemCheckerDaoException;
-import co.edu.sena.model.dao.factory.ItemCheckerDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ItemCheckerDaoException;
+import co.edu.sena.controller.factory.ItemCheckerDaoFactory;
 
 public class ItemCheckerDaoSample
 {

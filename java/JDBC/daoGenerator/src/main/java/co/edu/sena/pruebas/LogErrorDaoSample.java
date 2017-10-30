@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.LogErrorDao;
+import co.edu.sena.controller.dao.LogErrorDao;
 import co.edu.sena.model.dao.dto.LogError;
-import co.edu.sena.model.dao.exceptions.LogErrorDaoException;
-import co.edu.sena.model.dao.factory.LogErrorDaoFactory;
+import co.edu.sena.controller.dao.exceptions.LogErrorDaoException;
+import co.edu.sena.controller.factory.LogErrorDaoFactory;
 
 public class LogErrorDaoSample
 {

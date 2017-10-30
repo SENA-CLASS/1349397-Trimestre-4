@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.FichaHasListaDao;
+import co.edu.sena.controller.dao.FichaHasListaDao;
 import co.edu.sena.model.dao.dto.FichaHasLista;
-import co.edu.sena.model.dao.exceptions.FichaHasListaDaoException;
-import co.edu.sena.model.dao.factory.FichaHasListaDaoFactory;
+import co.edu.sena.controller.dao.exceptions.FichaHasListaDaoException;
+import co.edu.sena.controller.factory.FichaHasListaDaoFactory;
 
 public class FichaHasListaDaoSample
 {

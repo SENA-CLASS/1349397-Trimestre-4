@@ -8,9 +8,9 @@
 
 package co.edu.sena.model.dao.dto;
 
-import co.edu.sena.model.dao.dao.*;
-import co.edu.sena.model.dao.factory.*;
-import co.edu.sena.model.dao.exceptions.*;
+import co.edu.sena.controller.dao.*;
+import co.edu.sena.controller.factory.*;
+import co.edu.sena.controller.dao.exceptions.*;
 import java.io.Serializable;
 import java.util.*;
 import java.util.Date;

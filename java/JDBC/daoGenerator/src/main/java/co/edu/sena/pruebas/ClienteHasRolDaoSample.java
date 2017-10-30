@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.ClienteHasRolDao;
+import co.edu.sena.controller.dao.ClienteHasRolDao;
 import co.edu.sena.model.dao.dto.ClienteHasRol;
-import co.edu.sena.model.dao.exceptions.ClienteHasRolDaoException;
-import co.edu.sena.model.dao.factory.ClienteHasRolDaoFactory;
+import co.edu.sena.controller.dao.exceptions.ClienteHasRolDaoException;
+import co.edu.sena.controller.factory.ClienteHasRolDaoFactory;
 
 public class ClienteHasRolDaoSample
 {

@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.LogAuditoriaDao;
+import co.edu.sena.controller.dao.LogAuditoriaDao;
 import co.edu.sena.model.dao.dto.LogAuditoria;
-import co.edu.sena.model.dao.exceptions.LogAuditoriaDaoException;
-import co.edu.sena.model.dao.factory.LogAuditoriaDaoFactory;
+import co.edu.sena.controller.dao.exceptions.LogAuditoriaDaoException;
+import co.edu.sena.controller.factory.LogAuditoriaDaoFactory;
 
 public class LogAuditoriaDaoSample
 {

@@ -11,10 +11,10 @@ package co.edu.sena.pruebas;
 import java.math.*;
 import java.util.Date;
 import java.util.Collection;
-import co.edu.sena.model.dao.dao.TipoInstructorDao;
+import co.edu.sena.controller.dao.TipoInstructorDao;
 import co.edu.sena.model.dao.dto.TipoInstructor;
-import co.edu.sena.model.dao.exceptions.TipoInstructorDaoException;
-import co.edu.sena.model.dao.factory.TipoInstructorDaoFactory;
+import co.edu.sena.controller.dao.exceptions.TipoInstructorDaoException;
+import co.edu.sena.controller.factory.TipoInstructorDaoFactory;
 
 public class TipoInstructorDaoSample
 {
