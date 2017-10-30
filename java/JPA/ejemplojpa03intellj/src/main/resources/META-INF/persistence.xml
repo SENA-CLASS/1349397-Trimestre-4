@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+
+    <persistence-unit name="odpPersistenceUnit">
+        <class>co.edu.sena.ejemplo.model.jpa.entities.AprendizEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ClienteEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ClienteHasRolEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.CompetenciaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.EstadoFormacionEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.FichaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.FichaHasListaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.GrupoProyectoEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.InstructorFichaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.InstructorHasTrimestreEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ItemCheckerEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.JornadaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ListaChequeoEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.LogAuditoriaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.LogErrorEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ObservacionGeneralEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ObservacionItemEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ProgramaEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.RaeEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.RaeHasTrimestreEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.RespuestaGrupoEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.RolEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ServidorCorreoElectronicoEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.TipoDocumentoEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.TipoInstructorEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.TrimestreEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.UsuarioEntity</class>
+        <class>co.edu.sena.ejemplo.model.jpa.entities.ValoracionEntity</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:4306/jpa"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="123456789"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="eclipselink.logging.level.sql" value="ALL"/>
+        </properties>
+    </persistence-unit>
+</persistence>

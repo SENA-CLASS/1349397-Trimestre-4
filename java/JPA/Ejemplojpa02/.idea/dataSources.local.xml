@@ -20,6 +20,7 @@
       <secret-storage>master_key</secret-storage>
       <first-sync>true</first-sync>
       <user-name>root</user-name>
+      <introspection-schemas>*:jpa</introspection-schemas>
     </data-source>
   </component>
 </project>

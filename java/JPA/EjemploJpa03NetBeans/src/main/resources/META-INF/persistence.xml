@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+  <persistence-unit name="odpPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Rae</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ClienteHasRol</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Valoracion</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.InstructorFicha</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Trimestre</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.InstructorHasTrimestre</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Aprendiz</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.RespuestaGrupo</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Usuario</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Cliente</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.FichaHasLista</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Rol</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ListaChequeo</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ObservacionGeneral</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.EstadoFormacion</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.GrupoProyecto</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Ficha</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Jornada</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.TipoDocumento</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ServidorCorreoElectronico</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Competencia</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ItemChecker</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ObservacionItem</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.TipoInstructor</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.LogError</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.LogAuditoria</class>
+    <class>co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Programa</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:4306/observador_de_proyectos?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="123456789"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <!-- <property name="eclipselink.logging.level.sql" value="ALL"/> -->
+    </properties>
+  </persistence-unit>
+</persistence>

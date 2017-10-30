@@ -54,3 +54,8 @@ java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojp
 java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/Televisor_.java
 java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/Casco_.java
 java/JPA/Ejemplojpa02/target/classes/META-INF/persistence.xml
+/java/JPA/EjemploJpa03NetBeans/nbproject/
+/java/JPA/EjemploJpa03NetBeans/target/
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/relaciones/onetoone/Employee_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/relaciones/onetoone/Cubicle_.java
+java/JPA/Ejemplojpa02/target/generated-sources/annotations/co/edu/sena/ejemplojpa02/model/jpa/entites/autoincrementales/Mouse_.java
