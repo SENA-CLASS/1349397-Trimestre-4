@@ -24,7 +24,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tipo_documento")
 @NamedQueries({
-    @NamedQuery(name = "TipoDocumento.findAll", query = "SELECT t FROM TipoDocumento t")})
+    @NamedQuery(name = "TipoDocumento.findAll", query = "SELECT t FROM TipoDocumento t"),
+    @NamedQuery(name = "TipoDocumento.findByDescripcion", query = "SELECT t FROM TipoDocumento t WHERE t.descripcion = :descripcion"),
+    @NamedQuery(name = "TipoDocumento.findByEstado", query= "SELECT t FROM TipoDocumento t WHERE t.estado = :estado"),
+    @NamedQuery(name = "TipoDocumento.findByLikeDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.documento LIKE :documento"),
+    @NamedQuery(name = "TipoDocumento.findByLikeDescripcion", query = "SELECT t FROM TipoDocumento t WHERE t.descripcion LIKE :descripcion")
+    
+})
 public class TipoDocumento implements Serializable {
 
     private static final long serialVersionUID = 1L;

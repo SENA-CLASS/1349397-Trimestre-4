@@ -7,6 +7,9 @@ package co.edu.sena.ejemplojpa03netbeans.controller.dao.mysql;
 
 import co.edu.sena.ejemplojpa03netbeans.controller.dao.TipoDocumentoDao;
 import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.TipoDocumento;
+import java.util.List;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 /**
  *
@@ -17,5 +20,56 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
     public TipoDocumentoDaoImpl(Class entityClass) {
         super(entityClass);
     }
+    
+    public List<TipoDocumento> findByDescripcion(String descripcion) {
+        try {
+            this.getEntityManager();
+            Query query = this.em.createNamedQuery("TipoDocumento.findByDescripcion");
+            query.setParameter("descripcion", descripcion);
+            return query.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+       return null;
+    }
+    
+    public List<TipoDocumento> findByEstado(boolean estado) {
+        try {
+            this.getEntityManager();
+            Query query = this.em.createNamedQuery("TipoDocumento.findByEstado");
+            query.setParameter("estado", estado);
+            return query.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+       return null;
+    }
+    
+      public List<TipoDocumento> findByLikeDescripcion(String descripcion) {
+        try {
+            this.getEntityManager();
+            Query query = this.em.createNamedQuery("TipoDocumento.findByLikeDescripcion");
+            query.setParameter("descripcion", descripcion);
+            return query.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+       return null;
+    }
+      
+     public List<TipoDocumento> findByLikeDocumento(String documento) {
+        try {
+            this.getEntityManager();
+            Query query = this.em.createNamedQuery("TipoDocumento.findByLikeDocumento");
+            query.setParameter("documento", documento);
+            return query.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+       return null;
+    }
+    
+    
+    
     
 }

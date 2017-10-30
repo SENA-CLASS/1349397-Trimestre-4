@@ -13,7 +13,11 @@ import java.util.List;
  * @author Enrique
  * @param <T>
  */
-public interface TipoDocumentoDao<T extends TipoDocumento> extends InterfaceDao<T>{
-   
-    
+public interface TipoDocumentoDao<T extends TipoDocumento> extends InterfaceDao<T> {
+
+    public List<TipoDocumento> findByDescripcion(String descripcion);
+    public List<TipoDocumento> findByEstado(boolean estado);
+    public List<TipoDocumento> findByLikeDescripcion(String descripcion);
+    public List<TipoDocumento> findByLikeDocumento(String documento);
+
 }

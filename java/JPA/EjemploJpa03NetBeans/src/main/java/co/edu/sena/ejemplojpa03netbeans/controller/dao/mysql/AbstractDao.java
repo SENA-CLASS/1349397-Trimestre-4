@@ -17,7 +17,7 @@ import javax.persistence.PersistenceException;
  */
 public abstract class AbstractDao<T> {
 
-    private EntityManager em;
+    protected EntityManager em;
     private Class<T> entityClass;
 
     public void cleanEntity() {

@@ -85,31 +85,57 @@ public class TipoDocumentoDaoImplTest {
         dao.update(td);
         assertEquals(dao.find(td.getDocumento()), td);
     }
-    
+
     @Test
-    public void test4delete(){
+    public void test4delete() {
         System.out.println("prueba de tipo de documento metodo delete para la llave");
-         TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
-         dao.remove(td);
-         assertEquals(dao.find(td.getDocumento()), null);
-        
-    
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        dao.remove(td);
+        assertEquals(dao.find(td.getDocumento()), null);
+
     }
-    
+
     @Test
-    public void test5FindAll(){
+    public void test5FindAll() {
         System.out.println("prueba de tipo de documento metodo findall");
         TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
         List<TipoDocumento> lista = dao.findAll();
         for (TipoDocumento tipoDocumento : lista) {
             System.out.println(tipoDocumento.getDescripcion());
         }
-        
         assertTrue(!lista.isEmpty());
-        
-        
-        
-        
     }
 
+    @Test
+    public void test6FindDescripcion() {
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        List<TipoDocumento> lista = dao.findByDescripcion("Cédula de Ciudadanía");
+        for (TipoDocumento tipoDocumento : lista) {
+            assertEquals(tipoDocumento.getDescripcion(), "Cédula de Ciudadanía");
+        }
+    }
+    
+    @Test
+    public void test6FindEstado() {
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        List<TipoDocumento> lista = dao.findByEstado(true);
+        for (TipoDocumento tipoDocumento : lista) {
+            assertEquals(tipoDocumento.getEstado(), true);
+        }
+    }
+
+    
+    @Test
+    public void test6FindLikeDescripcion() {
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        List<TipoDocumento> lista = dao.findByLikeDescripcion("%iden%");
+        assertTrue(!lista.isEmpty());
+    }
+    
+    @Test
+    public void test6FindLikeDocumento() {
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        List<TipoDocumento> lista = dao.findByLikeDocumento("C%");
+        assertTrue(!lista.isEmpty());
+    }
 }
