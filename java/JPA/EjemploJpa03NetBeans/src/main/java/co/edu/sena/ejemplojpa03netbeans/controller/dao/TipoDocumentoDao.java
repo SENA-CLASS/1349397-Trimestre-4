@@ -15,10 +15,10 @@ import java.util.List;
  */
 public interface TipoDocumentoDao<T extends TipoDocumento> extends InterfaceDao<T> {
 
-    public List<TipoDocumento> findByDescripcion(String descripcion);
-    public List<TipoDocumento> findByEstado(boolean estado);
-    public List<TipoDocumento> findByLikeDescripcion(String descripcion);
-    public List<TipoDocumento> findByLikeDocumento(String documento);
+    public List<T> findByDescripcion(String descripcion);
+    public List<T> findByEstado(boolean estado);
+    public List<T> findByLikeDescripcion(String descripcion);
+    public List<T> findByLikeDocumento(String documento);
     public int updatePrimaryKey(String llaveNueva, String llaveVieja);
     
 
