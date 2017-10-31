@@ -68,6 +68,31 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
         }
        return null;
     }
+     
+    public int updatePrimaryKey(String llaveNueva, String llaveVieja){
+        try {
+            this.getEntityManager();
+            
+            if(this.find(llaveVieja)!=null){
+            
+            Query query = this.em.createNamedQuery("TipoDocumento.updatePimaryKey");
+            query.setParameter("documentoNuevo", llaveNueva );
+            query.setParameter("documentoViejo", llaveVieja );
+            this.em.getTransaction().begin();
+            int res =query.executeUpdate();
+            this.em.getTransaction().commit();
+            return res;
+            }else{
+                return 0;
+            }
+            
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+    
+        return 0;
+    
+    }
     
     
     

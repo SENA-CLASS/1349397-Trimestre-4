@@ -72,7 +72,6 @@ public abstract class AbstractDao<T> {
     public T find(Object id) {
         try {
             this.getEntityManager();
-            this.em.getTransaction().begin();
             return this.em.find(entityClass, id);
         } catch (PersistenceException e) {
             System.out.println("Exception:" + e.getMessage());

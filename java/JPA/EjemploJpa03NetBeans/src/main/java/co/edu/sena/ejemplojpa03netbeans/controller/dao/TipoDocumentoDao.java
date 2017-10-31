@@ -19,5 +19,7 @@ public interface TipoDocumentoDao<T extends TipoDocumento> extends InterfaceDao<
     public List<TipoDocumento> findByEstado(boolean estado);
     public List<TipoDocumento> findByLikeDescripcion(String descripcion);
     public List<TipoDocumento> findByLikeDocumento(String documento);
+    public int updatePrimaryKey(String llaveNueva, String llaveVieja);
+    
 
 }
