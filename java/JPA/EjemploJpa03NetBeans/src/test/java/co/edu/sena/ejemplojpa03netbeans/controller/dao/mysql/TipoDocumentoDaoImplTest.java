@@ -113,6 +113,7 @@ public class TipoDocumentoDaoImplTest {
         System.out.println("prueba de metodo findDescripcion del dao TipoDocumento");
         TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
         List<TipoDocumento> lista = dao.findByDescripcion("Cédula de Ciudadanía");
+        assertTrue(!lista.isEmpty());
         for (TipoDocumento tipoDocumento : lista) {
             assertEquals(tipoDocumento.getDescripcion(), "Cédula de Ciudadanía");
         }
@@ -123,6 +124,7 @@ public class TipoDocumentoDaoImplTest {
         System.out.println("prueba del metodo findEstado del dao TipoDocumentoDao");
         TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
         List<TipoDocumento> lista = dao.findByEstado(true);
+        assertTrue(!lista.isEmpty());
         for (TipoDocumento tipoDocumento : lista) {
             assertEquals(tipoDocumento.getEstado(), true);
         }

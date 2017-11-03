@@ -21,6 +21,7 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
         super(entityClass);
     }
     
+    @Override
     public List<TipoDocumento> findByDescripcion(String descripcion) {
         try {
             this.getEntityManager();
@@ -33,6 +34,7 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
        return null;
     }
     
+    @Override
     public List<TipoDocumento> findByEstado(boolean estado) {
         try {
             this.getEntityManager();
@@ -45,6 +47,7 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
        return null;
     }
     
+    @Override
       public List<TipoDocumento> findByLikeDescripcion(String descripcion) {
         try {
             this.getEntityManager();
@@ -57,6 +60,7 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
        return null;
     }
       
+    @Override
      public List<TipoDocumento> findByLikeDocumento(String documento) {
         try {
             this.getEntityManager();
@@ -69,12 +73,11 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
        return null;
     }
      
+    @Override
     public int updatePrimaryKey(String llaveNueva, String llaveVieja){
         try {
             this.getEntityManager();
-            
             if(this.find(llaveVieja)!=null){
-            
             Query query = this.em.createNamedQuery("TipoDocumento.updatePimaryKey");
             query.setParameter("documentoNuevo", llaveNueva );
             query.setParameter("documentoViejo", llaveVieja );
@@ -85,13 +88,10 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
             }else{
                 return 0;
             }
-            
         } catch (PersistenceException e) {
             System.out.println("Exception:" + e.getMessage());
         }
-    
         return 0;
-    
     }
     
     

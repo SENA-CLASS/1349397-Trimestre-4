@@ -6,6 +6,7 @@
 package co.edu.sena.ejemplojpa03netbeans.controller.dao;
 
 import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Cliente;
+import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.ClientePK;
 
 /**
  *
@@ -13,6 +14,9 @@ import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Cliente;
  * @param <T>
  */
 public interface ClienteDao <T extends Cliente> extends InterfaceDao<T>{
+    
+    public int updatePrimaryKey(ClientePK llaveNueva, ClientePK llaveVieja);
+    
     
     
 }

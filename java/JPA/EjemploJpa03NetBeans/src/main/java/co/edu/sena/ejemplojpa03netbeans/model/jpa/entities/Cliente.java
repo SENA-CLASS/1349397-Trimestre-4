@@ -28,7 +28,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cliente")
 @NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")})
+    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")
+   ,@NamedQuery(name= "Cliente.updatePk", query = "UPDATE Cliente c set c.clientePK.tipoDocumento = :nuevoTipoDocumento,  c.clientePK.numeroDocumento = :nuevoDocumento WHERE c.clientePK.tipoDocumento = :viejoTipoDocumento and  c.clientePK.numeroDocumento = :viejoDocumento")
+   ,@NamedQuery(name= "Cliente.findByTipoDocumento", query = "SELECT c FROM Cliente c WHERE c.clientePK.tipoDocumento = :tipoDocumento")
+   ,@NamedQuery(name= "Cliente.findByLikeTipoDocumento", query = "SELECT c FROM Cliente c WHERE c.clientePK.tipoDocumento LIKE :tipoDocumento")
+})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;

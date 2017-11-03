@@ -26,8 +26,9 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClienteDaoImplTest {
 
-    Cliente cliente;
-
+    private Cliente cliente;
+    private ClientePK clientePK;
+    
     public ClienteDaoImplTest() {
     }
 
@@ -48,6 +49,10 @@ public class ClienteDaoImplTest {
         cliente.setSegundoNombre("david");
         cliente.setPrimerApellido("murcia");
         cliente.setSegundoApellido("misi");
+        
+        clientePK = new ClientePK("TI", "345345345");
+        
+        
 
     }
 
@@ -72,15 +77,28 @@ public class ClienteDaoImplTest {
     
     @Test
     public void test3update(){
+        // con este update no se puede cambiar la llave primaria
         ClienteDao dao = ClienteFactory.create(Cliente.class);
         cliente.setPrimerNombre("julian");
         dao.update(cliente);
         assertEquals(dao.find(cliente.getClientePK()), cliente);
     }
     
+    @Test 
+    public void test3update2PrimaryKey(){
+        ClienteDao dao = ClienteFactory.create(Cliente.class);
+        dao.updatePrimaryKey(clientePK, cliente.getClientePK());
+        cliente.setClientePK(clientePK);
+        assertEquals(dao.find(clientePK), cliente);
+        
+        
+    
+    }
+    
     @Test
     public void test4Remove(){
         ClienteDao dao = ClienteFactory.create(Cliente.class);
+        cliente.setClientePK(clientePK);
         dao.remove(cliente);
         assertEquals(dao.find(cliente.getClientePK()), null);
         
