@@ -146,5 +146,13 @@ public class TipoDocumentoDaoImplTest {
         assertTrue(!lista.isEmpty());
     }
     
+    @Test
+    public void test6FindLikeEstado() {
+        TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
+        List<TipoDocumento> lista = dao.findByLikeEstado("%1%");
+        assertTrue(!lista.isEmpty());
+    }
+    
+    
    
 }

@@ -95,6 +95,20 @@ public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements 
     }
     
     
+    @Override
+     public List<TipoDocumento> findByLikeEstado(String documento) {
+        try {
+            this.getEntityManager();
+            Query query = this.em.createNativeQuery("SELECT * FROM observador_de_proyectos.tipo_documento t where t.estado like ?");
+            query.setParameter(1, documento);
+            return query.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println("Exception:" + e.getMessage());
+        }
+       return null;
+    }
+    
+    
     
     
 }
