@@ -9,10 +9,6 @@ import co.edu.sena.ejemplojpa03netbeans.controller.dao.TipoDocumentoDao;
 import co.edu.sena.ejemplojpa03netbeans.controller.factory.TipoDocumentoFactory;
 import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.TipoDocumento;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,6 +18,8 @@ import static org.junit.Assert.*;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
+
+
 /**
  *
  * @author Enrique
@@ -30,6 +28,7 @@ import org.junit.runners.MethodSorters;
 public class TipoDocumentoDaoImplTest {
 
     private TipoDocumento td;
+   
 
     public TipoDocumentoDaoImplTest() {
     }
@@ -60,9 +59,10 @@ public class TipoDocumentoDaoImplTest {
         TipoDocumentoDao dao = TipoDocumentoFactory.create(TipoDocumento.class);
         if (dao.find(td.getDocumento()) == null) {
             dao.insert(td);
-        } 
+        }
         assertEquals(dao.find(td.getDocumento()), td);
     }
+
 
     @Test
     public void test2find() {

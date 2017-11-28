@@ -17,7 +17,7 @@ import javax.persistence.Query;
  */
 public class TipoDocumentoDaoImpl extends AbstractDao<TipoDocumento> implements TipoDocumentoDao<TipoDocumento>{
     
-    public TipoDocumentoDaoImpl(Class entityClass) {
+    public TipoDocumentoDaoImpl(Class<TipoDocumento> entityClass) {
         super(entityClass);
     }
     

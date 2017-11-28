@@ -7,6 +7,7 @@ package co.edu.sena.ejemplojpa03netbeans.controller.factory;
 
 import co.edu.sena.ejemplojpa03netbeans.controller.dao.ClienteDao;
 import co.edu.sena.ejemplojpa03netbeans.controller.dao.mysql.ClienteDaoImpl;
+import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.Cliente;
 
 /**
  *
@@ -14,7 +15,7 @@ import co.edu.sena.ejemplojpa03netbeans.controller.dao.mysql.ClienteDaoImpl;
  */
 public class ClienteFactory {
     
-    public static ClienteDao create(Class entityClass){
+    public static ClienteDao<?> create(Class<Cliente> entityClass){
         return new ClienteDaoImpl(entityClass);
     }
     

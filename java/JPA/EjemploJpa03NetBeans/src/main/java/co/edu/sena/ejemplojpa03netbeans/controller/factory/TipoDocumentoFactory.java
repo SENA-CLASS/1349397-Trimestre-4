@@ -15,7 +15,7 @@ import co.edu.sena.ejemplojpa03netbeans.model.jpa.entities.TipoDocumento;
  */
 public class TipoDocumentoFactory {
     
-    public static TipoDocumentoDao create(Class entityClass){
+    public static TipoDocumentoDao<?> create(Class<TipoDocumento> entityClass){
         return new TipoDocumentoDaoImpl(entityClass);
     }
     
