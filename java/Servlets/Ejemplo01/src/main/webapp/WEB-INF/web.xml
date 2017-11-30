@@ -4,6 +4,10 @@
         <servlet-name>Ejemplo02</servlet-name>
         <servlet-class>co.edu.sena.ejemplo01.servlets.Ejemplo02</servlet-class>
     </servlet>
+    <context-param>
+<param-name>email </param-name>
+<param-value>vishalway@gmail.com</param-value>
+</context-param>
     <servlet-mapping>
         <servlet-name>Ejemplo02</servlet-name>
         <url-pattern>/Ejemplo02</url-pattern>

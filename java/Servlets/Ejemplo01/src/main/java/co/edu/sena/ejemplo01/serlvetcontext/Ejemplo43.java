@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.sena.ejerciciosession.controller;
+package co.edu.sena.ejemplo01.serlvetcontext;
 
-import co.edu.sena.ejerciciosession.controller.ejbs.UsuarioFacade;
-import co.edu.sena.ejerciciosession.model.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-import javax.ejb.EJB;
-import javax.inject.Inject;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,11 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Enrique
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
-
-    @Inject
-    UsuarioFacade usuarioFacade;
+@WebServlet(name = "Ejemplo43", urlPatterns = {"/Ejemplo43"})
+public class Ejemplo43 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,58 +33,29 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usuario = request.getParameter("usuario");
-        String pass = request.getParameter("password");
-        Usuario user = null;
-        if (usuario != null) {
-            user = usuarioFacade.find(usuario);
-        }
-
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Login</title>");
+            out.println("<title>Servlet Ejemplo43</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
-
-            if (user != null) {
-                if (usuario.equals(user.getDocumento())) {
-                    if (pass.equals(user.getPassword())) {
-                        request.getSession(true);
-                        request.getSession().setAttribute("usuario", user);
-                        out.println("hola usuario<br>");
-                        out.println("Atributos de la session<br>");
-                        Enumeration<String> listaAtributos = request.getSession().getAttributeNames();
-                        while (listaAtributos.hasMoreElements()) {
-                            String nextElement = listaAtributos.nextElement();
-                            out.println("Atriuto: " + nextElement + " Contenido: " + request.getSession().getAttribute(nextElement));
-
-                        }
-                        Cookie c1 = new Cookie("hola", "afsd fas");
-                        response.addCookie(c1);
-
-                    } else {
-                        out.println("ojo su contseña no es valida");
-                        request.getSession(false);
-                    }
-
-                } else {
-                    out.println("ese usuario no es valido");
-                    request.getSession(false);
-                }
-            } else {
-                out.println("ese usuario no es valido");
-                request.getSession(false);
+            out.println("<h1>Servlet Ejemplo43 at " + request.getContextPath() + "</h1>");
+            
+            ServletConfig configuracion = getServletConfig();
+            Enumeration<String> lista  = configuracion.getInitParameterNames();
+            while (lista.hasMoreElements()) {
+                String nextElement = lista.nextElement();
+                out.println(nextElement+"<br>");
             }
-
-            out.println("<form action=\"Logout\" method=\"POST\">\n"
-                    + "            <input type=\"submit\" value=\"Submit\">\n"
-                    + "        </form>");
-
+            
+            out.println(getServletInfo());
+            out.println(getServletName());
+            
+            out.println(getServletContext().getInitParameter("email"));
+            
             out.println("</body>");
             out.println("</html>");
         }
@@ -135,5 +99,7 @@ public class Login extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
