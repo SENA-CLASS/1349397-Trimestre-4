@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CompetenciaCreateDlg" widgetVar="CompetenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCompetenciaTitle}">
+            <h:form id="CompetenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{competenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_competenciaPK_codigo}" for="competenciaPK_codigo" />
+                        <p:inputText id="competenciaPK_codigo" value="#{competenciaController.selected.competenciaPK.codigo}" title="#{bundle.CreateCompetenciaTitle_competenciaPK_codigo}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_competenciaPK_codigo}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_denominacion}" for="denominacion" />
+                        <p:inputTextarea rows="4" cols="30" id="denominacion" value="#{competenciaController.selected.denominacion}" title="#{bundle.CreateCompetenciaTitle_denominacion}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_denominacion}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_programa}" for="programa" />
+                        <p:selectOneMenu id="programa" value="#{competenciaController.selected.programa}" required="true" requiredMessage="#{bundle.EditCompetenciaRequiredMessage_programa}">
+                            <f:selectItems value="#{programaController.itemsAvailableSelectOne}"
+                                           var="programaItem"
+                                           itemValue="#{programaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{competenciaController.create}" value="#{bundle.Save}" update="display,:CompetenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'CompetenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CompetenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

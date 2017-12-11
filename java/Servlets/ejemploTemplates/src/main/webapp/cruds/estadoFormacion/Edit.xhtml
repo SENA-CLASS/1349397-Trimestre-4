@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstadoFormacionEditDlg" widgetVar="EstadoFormacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEstadoFormacionTitle}">
+            <h:form id="EstadoFormacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estadoFormacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEstadoFormacionLabel_idEstado}" for="idEstado" />
+                        <p:inputText id="idEstado" value="#{estadoFormacionController.selected.idEstado}" title="#{bundle.EditEstadoFormacionTitle_idEstado}" required="true" requiredMessage="#{bundle.EditEstadoFormacionRequiredMessage_idEstado}"/>
+                        <p:outputLabel value="#{bundle.EditEstadoFormacionLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{estadoFormacionController.selected.estado}" required="true" requiredMessage="#{bundle.EditEstadoFormacionRequiredMessage_estado}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estadoFormacionController.update}" value="#{bundle.Save}" update="display,:EstadoFormacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstadoFormacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstadoFormacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

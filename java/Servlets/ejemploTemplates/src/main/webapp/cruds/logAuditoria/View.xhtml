@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LogAuditoriaViewDlg" widgetVar="LogAuditoriaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLogAuditoriaTitle}">
+            <h:form id="LogAuditoriaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{logAuditoriaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_idLog}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.idLog}" title="#{bundle.ViewLogAuditoriaTitle_idLog}"/>
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_level}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.level}" title="#{bundle.ViewLogAuditoriaTitle_level}"/>
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_logName}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.logName}" title="#{bundle.ViewLogAuditoriaTitle_logName}"/>
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_mensage}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.mensage}" title="#{bundle.ViewLogAuditoriaTitle_mensage}"/>
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_fecha}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.fecha}" title="#{bundle.ViewLogAuditoriaTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLogAuditoriaLabel_usuario}"/>
+                        <h:outputText value="#{logAuditoriaController.selected.usuario}" title="#{bundle.ViewLogAuditoriaTitle_usuario}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LogAuditoriaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

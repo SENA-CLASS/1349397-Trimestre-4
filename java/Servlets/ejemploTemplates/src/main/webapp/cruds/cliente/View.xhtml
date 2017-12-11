@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteViewDlg" widgetVar="ClienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteTitle}">
+            <h:form id="ClienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteLabel_clientePK_numeroDocumento}"/>
+                        <h:outputText value="#{clienteController.selected.clientePK.numeroDocumento}" title="#{bundle.ViewClienteTitle_clientePK_numeroDocumento}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_primerNombre}"/>
+                        <h:outputText value="#{clienteController.selected.primerNombre}" title="#{bundle.ViewClienteTitle_primerNombre}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_segundoNombre}"/>
+                        <h:outputText value="#{clienteController.selected.segundoNombre}" title="#{bundle.ViewClienteTitle_segundoNombre}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_primerApellido}"/>
+                        <h:outputText value="#{clienteController.selected.primerApellido}" title="#{bundle.ViewClienteTitle_primerApellido}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_segundoApellido}"/>
+                        <h:outputText value="#{clienteController.selected.segundoApellido}" title="#{bundle.ViewClienteTitle_segundoApellido}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_foto}"/>
+                        <h:outputText value="#{clienteController.selected.foto}" title="#{bundle.ViewClienteTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_tipoDocumento1}"/>
+                        <h:outputText value="#{clienteController.selected.tipoDocumento1}" title="#{bundle.ViewClienteTitle_tipoDocumento1}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_usuario}"/>
+                        <h:outputText value="#{clienteController.selected.usuario}" title="#{bundle.ViewClienteTitle_usuario}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

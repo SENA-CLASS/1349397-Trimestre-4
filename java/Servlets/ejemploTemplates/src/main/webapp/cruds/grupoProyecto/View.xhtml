@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GrupoProyectoViewDlg" widgetVar="GrupoProyectoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewGrupoProyectoTitle}">
+            <h:form id="GrupoProyectoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{grupoProyectoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewGrupoProyectoLabel_grupoProyectoPK_codigo}"/>
+                        <h:outputText value="#{grupoProyectoController.selected.grupoProyectoPK.codigo}" title="#{bundle.ViewGrupoProyectoTitle_grupoProyectoPK_codigo}"/>
+                        <h:outputText value="#{bundle.ViewGrupoProyectoLabel_nombreProyecto}"/>
+                        <h:outputText value="#{grupoProyectoController.selected.nombreProyecto}" title="#{bundle.ViewGrupoProyectoTitle_nombreProyecto}"/>
+                        <h:outputText value="#{bundle.ViewGrupoProyectoLabel_estadoGrupo}"/>
+                        <h:outputText value="#{grupoProyectoController.selected.estadoGrupo}" title="#{bundle.ViewGrupoProyectoTitle_estadoGrupo}"/>
+                        <h:outputText value="#{bundle.ViewGrupoProyectoLabel_ficha}"/>
+                        <h:outputText value="#{grupoProyectoController.selected.ficha}" title="#{bundle.ViewGrupoProyectoTitle_ficha}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="GrupoProyectoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

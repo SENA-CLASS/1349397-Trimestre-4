@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaCreateDlg" widgetVar="FichaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFichaTitle}">
+            <h:form id="FichaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fichaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_numeroFicha}" for="numeroFicha" />
+                        <p:inputText id="numeroFicha" value="#{fichaController.selected.numeroFicha}" title="#{bundle.CreateFichaTitle_numeroFicha}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_numeroFicha}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{fichaController.selected.estado}" title="#{bundle.CreateFichaTitle_estado}" required="true" requiredMessage="#{bundle.CreateFichaRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_fichaHasLista}" for="fichaHasLista" />
+                        <p:selectOneMenu id="fichaHasLista" value="#{fichaController.selected.fichaHasLista}" >
+                            <f:selectItems value="#{fichaHasListaController.itemsAvailableSelectOne}"
+                                           var="fichaHasListaItem"
+                                           itemValue="#{fichaHasListaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_jornadaNombre}" for="jornadaNombre" />
+                        <p:selectOneMenu id="jornadaNombre" value="#{fichaController.selected.jornadaNombre}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_jornadaNombre}">
+                            <f:selectItems value="#{jornadaController.itemsAvailableSelectOne}"
+                                           var="jornadaNombreItem"
+                                           itemValue="#{jornadaNombreItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFichaLabel_programaCodigoVersion}" for="programaCodigoVersion" />
+                        <p:selectOneMenu id="programaCodigoVersion" value="#{fichaController.selected.programaCodigoVersion}" required="true" requiredMessage="#{bundle.EditFichaRequiredMessage_programaCodigoVersion}">
+                            <f:selectItems value="#{programaController.itemsAvailableSelectOne}"
+                                           var="programaCodigoVersionItem"
+                                           itemValue="#{programaCodigoVersionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fichaController.create}" value="#{bundle.Save}" update="display,:FichaListForm:datalist,:growl" oncomplete="handleSubmit(args,'FichaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FichaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
