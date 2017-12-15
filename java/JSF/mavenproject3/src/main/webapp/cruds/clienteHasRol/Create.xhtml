@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteHasRolCreateDlg" widgetVar="ClienteHasRolCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateClienteHasRolTitle}">
+            <h:form id="ClienteHasRolCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteHasRolController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateClienteHasRolLabel_estado}" for="estado" />
+                        <p:selectBooleanCheckbox id="estado" value="#{clienteHasRolController.selected.estado}" required="true" requiredMessage="#{bundle.EditClienteHasRolRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateClienteHasRolLabel_fechaTerminacion}" for="fechaTerminacion" />
+                        <p:calendar id="fechaTerminacion" pattern="MM/dd/yyyy" value="#{clienteHasRolController.selected.fechaTerminacion}" title="#{bundle.EditClienteHasRolTitle_fechaTerminacion}" required="true" requiredMessage="#{bundle.EditClienteHasRolRequiredMessage_fechaTerminacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateClienteHasRolLabel_cliente}" for="cliente" />
+                        <p:selectOneMenu id="cliente" value="#{clienteHasRolController.selected.cliente}" required="true" requiredMessage="#{bundle.EditClienteHasRolRequiredMessage_cliente}">
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="clienteItem"
+                                           itemValue="#{clienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateClienteHasRolLabel_rol1}" for="rol1" />
+                        <p:selectOneMenu id="rol1" value="#{clienteHasRolController.selected.rol1}" required="true" requiredMessage="#{bundle.EditClienteHasRolRequiredMessage_rol1}">
+                            <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
+                                           var="rol1Item"
+                                           itemValue="#{rol1Item}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{clienteHasRolController.create}" value="#{bundle.Save}" update="display,:ClienteHasRolListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClienteHasRolCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ClienteHasRolCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

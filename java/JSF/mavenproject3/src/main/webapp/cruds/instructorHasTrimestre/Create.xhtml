@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InstructorHasTrimestreCreateDlg" widgetVar="InstructorHasTrimestreCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInstructorHasTrimestreTitle}">
+            <h:form id="InstructorHasTrimestreCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{instructorHasTrimestreController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateInstructorHasTrimestreLabel_instructorFicha}" for="instructorFicha" />
+                        <p:selectOneMenu id="instructorFicha" value="#{instructorHasTrimestreController.selected.instructorFicha}" required="true" requiredMessage="#{bundle.EditInstructorHasTrimestreRequiredMessage_instructorFicha}">
+                            <f:selectItems value="#{instructorFichaController.itemsAvailableSelectOne}"
+                                           var="instructorFichaItem"
+                                           itemValue="#{instructorFichaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInstructorHasTrimestreLabel_tipoInstructor1}" for="tipoInstructor1" />
+                        <p:selectOneMenu id="tipoInstructor1" value="#{instructorHasTrimestreController.selected.tipoInstructor1}" required="true" requiredMessage="#{bundle.EditInstructorHasTrimestreRequiredMessage_tipoInstructor1}">
+                            <f:selectItems value="#{tipoInstructorController.itemsAvailableSelectOne}"
+                                           var="tipoInstructor1Item"
+                                           itemValue="#{tipoInstructor1Item}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateInstructorHasTrimestreLabel_trimestre}" for="trimestre" />
+                        <p:selectOneMenu id="trimestre" value="#{instructorHasTrimestreController.selected.trimestre}" required="true" requiredMessage="#{bundle.EditInstructorHasTrimestreRequiredMessage_trimestre}">
+                            <f:selectItems value="#{trimestreController.itemsAvailableSelectOne}"
+                                           var="trimestreItem"
+                                           itemValue="#{trimestreItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{instructorHasTrimestreController.create}" value="#{bundle.Save}" update="display,:InstructorHasTrimestreListForm:datalist,:growl" oncomplete="handleSubmit(args,'InstructorHasTrimestreCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InstructorHasTrimestreCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

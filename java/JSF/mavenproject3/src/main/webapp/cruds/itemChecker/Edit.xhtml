@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemCheckerEditDlg" widgetVar="ItemCheckerEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditItemCheckerTitle}">
+            <h:form id="ItemCheckerEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemCheckerController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditItemCheckerLabel_itemCheckerPK_idItem}" for="itemCheckerPK_idItem" />
+                        <p:inputText id="itemCheckerPK_idItem" value="#{itemCheckerController.selected.itemCheckerPK.idItem}" title="#{bundle.EditItemCheckerTitle_itemCheckerPK_idItem}" required="true" requiredMessage="#{bundle.EditItemCheckerRequiredMessage_itemCheckerPK_idItem}"/>
+                        <p:outputLabel value="#{bundle.EditItemCheckerLabel_pregunta}" for="pregunta" />
+                        <p:inputTextarea rows="4" cols="30" id="pregunta" value="#{itemCheckerController.selected.pregunta}" title="#{bundle.EditItemCheckerTitle_pregunta}" required="true" requiredMessage="#{bundle.EditItemCheckerRequiredMessage_pregunta}"/>
+                        <p:outputLabel value="#{bundle.EditItemCheckerLabel_listaChequeo1}" for="listaChequeo1" />
+                        <p:selectOneMenu id="listaChequeo1" value="#{itemCheckerController.selected.listaChequeo1}" required="true" requiredMessage="#{bundle.EditItemCheckerRequiredMessage_listaChequeo1}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{listaChequeoController.itemsAvailableSelectOne}"
+                                           var="listaChequeo1Item"
+                                           itemValue="#{listaChequeo1Item}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditItemCheckerLabel_rae}" for="rae" />
+                        <p:selectOneMenu id="rae" value="#{itemCheckerController.selected.rae}" required="true" requiredMessage="#{bundle.EditItemCheckerRequiredMessage_rae}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{raeController.itemsAvailableSelectOne}"
+                                           var="raeItem"
+                                           itemValue="#{raeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{itemCheckerController.update}" value="#{bundle.Save}" update="display,:ItemCheckerListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemCheckerEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ItemCheckerEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

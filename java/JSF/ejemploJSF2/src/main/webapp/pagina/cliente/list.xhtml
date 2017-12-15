@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataTable var="cliente" value="#{clienteController.consulta}"
+                         paginator="true" rows="5"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         selectionMode="single" selection="#{clienteController.seleccionado}"
+                         rowKey="#{cliente.clientePK}"
+                         rowsPerPageTemplate="5,10,15"
+                         >
+                <p:column headerText="Tipo Documento">
+                    <h:outputText value="#{cliente.clientePK.tipoDocumento}"/>
+                </p:column>
+                <p:column headerText="Numero Documento">
+                    <h:outputText value="#{cliente.clientePK.numeroDocumento}"/>
+                </p:column>
+                <p:column headerText="Primer Nombre">
+                    <h:outputText value="#{cliente.primerNombre}"/>
+                </p:column>
+                <p:column headerText="Segundo Nombre">
+                    <h:outputText value="#{cliente.segundoNombre}"/>
+                </p:column>
+                <p:column headerText="Primer Apellido">
+                    <h:outputText value="#{cliente.primerApellido}"/>
+                </p:column>
+                <p:column headerText="Segundo Apellido">
+                    <h:outputText value="#{cliente.segundoApellido}"/>
+                </p:column>
+                <p:column headerText="Segundo Apellido">
+                    <h:outputText value="#{cliente.usuario.correo}"/>
+                </p:column>
+
+
+            </p:dataTable>
+            <p:commandButton id="createButton" icon="ui-icon-plus"   value="crear" actionListener="#{clienteController.guardar()}" />
+        </h:form>
+    </h:body>
+</html>
+

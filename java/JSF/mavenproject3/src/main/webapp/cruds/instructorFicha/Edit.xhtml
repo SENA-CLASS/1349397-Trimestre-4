@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InstructorFichaEditDlg" widgetVar="InstructorFichaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditInstructorFichaTitle}">
+            <h:form id="InstructorFichaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{instructorFichaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditInstructorFichaLabel_cliente}" for="cliente" />
+                        <p:selectOneMenu id="cliente" value="#{instructorFichaController.selected.cliente}" required="true" requiredMessage="#{bundle.EditInstructorFichaRequiredMessage_cliente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="clienteItem"
+                                           itemValue="#{clienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditInstructorFichaLabel_ficha1}" for="ficha1" />
+                        <p:selectOneMenu id="ficha1" value="#{instructorFichaController.selected.ficha1}" required="true" requiredMessage="#{bundle.EditInstructorFichaRequiredMessage_ficha1}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{fichaController.itemsAvailableSelectOne}"
+                                           var="ficha1Item"
+                                           itemValue="#{ficha1Item}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{instructorFichaController.update}" value="#{bundle.Save}" update="display,:InstructorFichaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InstructorFichaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InstructorFichaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

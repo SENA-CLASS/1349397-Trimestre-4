@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LogErrorViewDlg" widgetVar="LogErrorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLogErrorTitle}">
+            <h:form id="LogErrorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{logErrorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_idLog}"/>
+                        <h:outputText value="#{logErrorController.selected.idLog}" title="#{bundle.ViewLogErrorTitle_idLog}"/>
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_level}"/>
+                        <h:outputText value="#{logErrorController.selected.level}" title="#{bundle.ViewLogErrorTitle_level}"/>
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_logName}"/>
+                        <h:outputText value="#{logErrorController.selected.logName}" title="#{bundle.ViewLogErrorTitle_logName}"/>
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_mensage}"/>
+                        <h:outputText value="#{logErrorController.selected.mensage}" title="#{bundle.ViewLogErrorTitle_mensage}"/>
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_fecha}"/>
+                        <h:outputText value="#{logErrorController.selected.fecha}" title="#{bundle.ViewLogErrorTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLogErrorLabel_usuario}"/>
+                        <h:outputText value="#{logErrorController.selected.usuario}" title="#{bundle.ViewLogErrorTitle_usuario}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LogErrorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

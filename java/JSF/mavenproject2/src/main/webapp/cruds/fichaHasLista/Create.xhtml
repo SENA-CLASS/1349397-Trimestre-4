@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FichaHasListaCreateDlg" widgetVar="FichaHasListaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFichaHasListaTitle}">
+            <h:form id="FichaHasListaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fichaHasListaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFichaHasListaLabel_ficha}" for="ficha" />
+                        <p:inputText id="ficha" value="#{fichaHasListaController.selected.ficha}" title="#{bundle.CreateFichaHasListaTitle_ficha}" required="true" requiredMessage="#{bundle.CreateFichaHasListaRequiredMessage_ficha}"/>
+                        <p:outputLabel value="#{bundle.CreateFichaHasListaLabel_ficha1}" for="ficha1" />
+                        <p:selectOneMenu id="ficha1" value="#{fichaHasListaController.selected.ficha1}" required="true" requiredMessage="#{bundle.EditFichaHasListaRequiredMessage_ficha1}">
+                            <f:selectItems value="#{fichaController.itemsAvailableSelectOne}"
+                                           var="ficha1Item"
+                                           itemValue="#{ficha1Item}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFichaHasListaLabel_listaChequeo}" for="listaChequeo" />
+                        <p:selectOneMenu id="listaChequeo" value="#{fichaHasListaController.selected.listaChequeo}" required="true" requiredMessage="#{bundle.EditFichaHasListaRequiredMessage_listaChequeo}">
+                            <f:selectItems value="#{listaChequeoController.itemsAvailableSelectOne}"
+                                           var="listaChequeoItem"
+                                           itemValue="#{listaChequeoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fichaHasListaController.create}" value="#{bundle.Save}" update="display,:FichaHasListaListForm:datalist,:growl" oncomplete="handleSubmit(args,'FichaHasListaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FichaHasListaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

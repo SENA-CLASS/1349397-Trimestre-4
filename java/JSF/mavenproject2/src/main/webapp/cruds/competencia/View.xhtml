@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CompetenciaViewDlg" widgetVar="CompetenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCompetenciaTitle}">
+            <h:form id="CompetenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{competenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_competenciaPK_codigo}"/>
+                        <h:outputText value="#{competenciaController.selected.competenciaPK.codigo}" title="#{bundle.ViewCompetenciaTitle_competenciaPK_codigo}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_denominacion}"/>
+                        <h:outputText value="#{competenciaController.selected.denominacion}" title="#{bundle.ViewCompetenciaTitle_denominacion}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_programa}"/>
+                        <h:outputText value="#{competenciaController.selected.programa}" title="#{bundle.ViewCompetenciaTitle_programa}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CompetenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

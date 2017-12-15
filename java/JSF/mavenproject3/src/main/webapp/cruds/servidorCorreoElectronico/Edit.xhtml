@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServidorCorreoElectronicoEditDlg" widgetVar="ServidorCorreoElectronicoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditServidorCorreoElectronicoTitle}">
+            <h:form id="ServidorCorreoElectronicoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{servidorCorreoElectronicoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{servidorCorreoElectronicoController.selected.correo}" title="#{bundle.EditServidorCorreoElectronicoTitle_correo}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_correo}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_contrasenia}" for="contrasenia" />
+                        <p:inputText id="contrasenia" value="#{servidorCorreoElectronicoController.selected.contrasenia}" title="#{bundle.EditServidorCorreoElectronicoTitle_contrasenia}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_contrasenia}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_smtpHost}" for="smtpHost" />
+                        <p:inputText id="smtpHost" value="#{servidorCorreoElectronicoController.selected.smtpHost}" title="#{bundle.EditServidorCorreoElectronicoTitle_smtpHost}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_smtpHost}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_smtpPort}" for="smtpPort" />
+                        <p:inputText id="smtpPort" value="#{servidorCorreoElectronicoController.selected.smtpPort}" title="#{bundle.EditServidorCorreoElectronicoTitle_smtpPort}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_smtpPort}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_smtpStartTlsEnable}" for="smtpStartTlsEnable" />
+                        <p:selectBooleanCheckbox id="smtpStartTlsEnable" value="#{servidorCorreoElectronicoController.selected.smtpStartTlsEnable}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_smtpStartTlsEnable}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_smtpAuth}" for="smtpAuth" />
+                        <p:selectBooleanCheckbox id="smtpAuth" value="#{servidorCorreoElectronicoController.selected.smtpAuth}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_smtpAuth}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_asuntoRecuperacion}" for="asuntoRecuperacion" />
+                        <p:inputText id="asuntoRecuperacion" value="#{servidorCorreoElectronicoController.selected.asuntoRecuperacion}" title="#{bundle.EditServidorCorreoElectronicoTitle_asuntoRecuperacion}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_asuntoRecuperacion}"/>
+                        <p:outputLabel value="#{bundle.EditServidorCorreoElectronicoLabel_mensageRecuperacion}" for="mensageRecuperacion" />
+                        <p:inputText id="mensageRecuperacion" value="#{servidorCorreoElectronicoController.selected.mensageRecuperacion}" title="#{bundle.EditServidorCorreoElectronicoTitle_mensageRecuperacion}" required="true" requiredMessage="#{bundle.EditServidorCorreoElectronicoRequiredMessage_mensageRecuperacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{servidorCorreoElectronicoController.update}" value="#{bundle.Save}" update="display,:ServidorCorreoElectronicoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ServidorCorreoElectronicoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServidorCorreoElectronicoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ItemCheckerViewDlg" widgetVar="ItemCheckerViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewItemCheckerTitle}">
+            <h:form id="ItemCheckerViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemCheckerController.selected != null}">
+                        <h:outputText value="#{bundle.ViewItemCheckerLabel_itemCheckerPK_idItem}"/>
+                        <h:outputText value="#{itemCheckerController.selected.itemCheckerPK.idItem}" title="#{bundle.ViewItemCheckerTitle_itemCheckerPK_idItem}"/>
+                        <h:outputText value="#{bundle.ViewItemCheckerLabel_pregunta}"/>
+                        <h:outputText value="#{itemCheckerController.selected.pregunta}" title="#{bundle.ViewItemCheckerTitle_pregunta}"/>
+                        <h:outputText value="#{bundle.ViewItemCheckerLabel_listaChequeo1}"/>
+                        <h:outputText value="#{itemCheckerController.selected.listaChequeo1}" title="#{bundle.ViewItemCheckerTitle_listaChequeo1}"/>
+                        <h:outputText value="#{bundle.ViewItemCheckerLabel_rae}"/>
+                        <h:outputText value="#{itemCheckerController.selected.rae}" title="#{bundle.ViewItemCheckerTitle_rae}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ItemCheckerViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

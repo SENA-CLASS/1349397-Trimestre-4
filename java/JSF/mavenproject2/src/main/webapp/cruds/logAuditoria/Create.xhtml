@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LogAuditoriaCreateDlg" widgetVar="LogAuditoriaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateLogAuditoriaTitle}">
+            <h:form id="LogAuditoriaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{logAuditoriaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_idLog}" for="idLog" />
+                        <p:inputText id="idLog" value="#{logAuditoriaController.selected.idLog}" title="#{bundle.CreateLogAuditoriaTitle_idLog}" required="true" requiredMessage="#{bundle.CreateLogAuditoriaRequiredMessage_idLog}"/>
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_level}" for="level" />
+                        <p:inputText id="level" value="#{logAuditoriaController.selected.level}" title="#{bundle.CreateLogAuditoriaTitle_level}" />
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_logName}" for="logName" />
+                        <p:inputText id="logName" value="#{logAuditoriaController.selected.logName}" title="#{bundle.CreateLogAuditoriaTitle_logName}" />
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_mensage}" for="mensage" />
+                        <p:inputTextarea rows="4" cols="30" id="mensage" value="#{logAuditoriaController.selected.mensage}" title="#{bundle.CreateLogAuditoriaTitle_mensage}" />
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{logAuditoriaController.selected.fecha}" title="#{bundle.EditLogAuditoriaTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLogAuditoriaLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{logAuditoriaController.selected.usuario}" title="#{bundle.CreateLogAuditoriaTitle_usuario}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{logAuditoriaController.create}" value="#{bundle.Save}" update="display,:LogAuditoriaListForm:datalist,:growl" oncomplete="handleSubmit(args,'LogAuditoriaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LogAuditoriaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

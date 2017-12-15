@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFichaHasListaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="FichaHasListaListForm">
+                <p:panel header="#{bundle.ListFichaHasListaTitle}">
+                    <p:dataTable id="datalist" value="#{fichaHasListaController.items}" var="item"
+                                 selectionMode="single" selection="#{fichaHasListaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.ficha}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaHasListaTitle_ficha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ficha}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaHasListaTitle_ficha1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ficha1}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFichaHasListaTitle_listaChequeo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.listaChequeo}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{fichaHasListaController.prepareCreate}" update=":FichaHasListaCreateForm" oncomplete="PF('FichaHasListaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":FichaHasListaViewForm" oncomplete="PF('FichaHasListaViewDialog').show()" disabled="#{empty fichaHasListaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":FichaHasListaEditForm" oncomplete="PF('FichaHasListaEditDialog').show()" disabled="#{empty fichaHasListaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{fichaHasListaController.destroy}" update=":growl,datalist" disabled="#{empty fichaHasListaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

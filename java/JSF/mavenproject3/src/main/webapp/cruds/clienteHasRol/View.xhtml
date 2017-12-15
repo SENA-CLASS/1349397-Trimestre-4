@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteHasRolViewDlg" widgetVar="ClienteHasRolViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteHasRolTitle}">
+            <h:form id="ClienteHasRolViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteHasRolController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteHasRolLabel_estado}"/>
+                        <p:selectBooleanCheckbox value="#{clienteHasRolController.selected.estado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewClienteHasRolLabel_fechaTerminacion}"/>
+                        <h:outputText value="#{clienteHasRolController.selected.fechaTerminacion}" title="#{bundle.ViewClienteHasRolTitle_fechaTerminacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewClienteHasRolLabel_cliente}"/>
+                        <h:outputText value="#{clienteHasRolController.selected.cliente}" title="#{bundle.ViewClienteHasRolTitle_cliente}"/>
+                        <h:outputText value="#{bundle.ViewClienteHasRolLabel_rol1}"/>
+                        <h:outputText value="#{clienteHasRolController.selected.rol1}" title="#{bundle.ViewClienteHasRolTitle_rol1}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteHasRolViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

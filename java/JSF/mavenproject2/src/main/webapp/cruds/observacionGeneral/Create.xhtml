@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ObservacionGeneralCreateDlg" widgetVar="ObservacionGeneralCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateObservacionGeneralTitle}">
+            <h:form id="ObservacionGeneralCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{observacionGeneralController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_observacionGeneralPK_idObservacion}" for="observacionGeneralPK_idObservacion" />
+                        <p:inputText id="observacionGeneralPK_idObservacion" value="#{observacionGeneralController.selected.observacionGeneralPK.idObservacion}" title="#{bundle.CreateObservacionGeneralTitle_observacionGeneralPK_idObservacion}" required="true" requiredMessage="#{bundle.CreateObservacionGeneralRequiredMessage_observacionGeneralPK_idObservacion}"/>
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_observacion}" for="observacion" />
+                        <p:inputTextarea rows="4" cols="30" id="observacion" value="#{observacionGeneralController.selected.observacion}" title="#{bundle.CreateObservacionGeneralTitle_observacion}" required="true" requiredMessage="#{bundle.CreateObservacionGeneralRequiredMessage_observacion}"/>
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_jurado}" for="jurado" />
+                        <p:inputTextarea rows="4" cols="30" id="jurado" value="#{observacionGeneralController.selected.jurado}" title="#{bundle.CreateObservacionGeneralTitle_jurado}" />
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{observacionGeneralController.selected.fecha}" title="#{bundle.EditObservacionGeneralTitle_fecha}" required="true" requiredMessage="#{bundle.EditObservacionGeneralRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{observacionGeneralController.selected.usuario}" title="#{bundle.CreateObservacionGeneralTitle_usuario}" required="true" requiredMessage="#{bundle.CreateObservacionGeneralRequiredMessage_usuario}"/>
+                        <p:outputLabel value="#{bundle.CreateObservacionGeneralLabel_grupoProyecto}" for="grupoProyecto" />
+                        <p:selectOneMenu id="grupoProyecto" value="#{observacionGeneralController.selected.grupoProyecto}" required="true" requiredMessage="#{bundle.EditObservacionGeneralRequiredMessage_grupoProyecto}">
+                            <f:selectItems value="#{grupoProyectoController.itemsAvailableSelectOne}"
+                                           var="grupoProyectoItem"
+                                           itemValue="#{grupoProyectoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{observacionGeneralController.create}" value="#{bundle.Save}" update="display,:ObservacionGeneralListForm:datalist,:growl" oncomplete="handleSubmit(args,'ObservacionGeneralCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ObservacionGeneralCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

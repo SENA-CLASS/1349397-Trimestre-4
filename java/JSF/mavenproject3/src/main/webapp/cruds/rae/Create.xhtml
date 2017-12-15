@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RaeCreateDlg" widgetVar="RaeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRaeTitle}">
+            <h:form id="RaeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{raeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRaeLabel_raePK_codigo}" for="raePK_codigo" />
+                        <p:inputText id="raePK_codigo" value="#{raeController.selected.raePK.codigo}" title="#{bundle.CreateRaeTitle_raePK_codigo}" required="true" requiredMessage="#{bundle.CreateRaeRequiredMessage_raePK_codigo}"/>
+                        <p:outputLabel value="#{bundle.CreateRaeLabel_denominacion}" for="denominacion" />
+                        <p:inputTextarea rows="4" cols="30" id="denominacion" value="#{raeController.selected.denominacion}" title="#{bundle.CreateRaeTitle_denominacion}" required="true" requiredMessage="#{bundle.CreateRaeRequiredMessage_denominacion}"/>
+                        <p:outputLabel value="#{bundle.CreateRaeLabel_competencia}" for="competencia" />
+                        <p:selectOneMenu id="competencia" value="#{raeController.selected.competencia}" required="true" requiredMessage="#{bundle.EditRaeRequiredMessage_competencia}">
+                            <f:selectItems value="#{competenciaController.itemsAvailableSelectOne}"
+                                           var="competenciaItem"
+                                           itemValue="#{competenciaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{raeController.create}" value="#{bundle.Save}" update="display,:RaeListForm:datalist,:growl" oncomplete="handleSubmit(args,'RaeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RaeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

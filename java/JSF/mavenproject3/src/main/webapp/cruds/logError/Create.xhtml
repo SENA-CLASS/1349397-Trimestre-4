@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LogErrorCreateDlg" widgetVar="LogErrorCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateLogErrorTitle}">
+            <h:form id="LogErrorCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{logErrorController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_idLog}" for="idLog" />
+                        <p:inputText id="idLog" value="#{logErrorController.selected.idLog}" title="#{bundle.CreateLogErrorTitle_idLog}" required="true" requiredMessage="#{bundle.CreateLogErrorRequiredMessage_idLog}"/>
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_level}" for="level" />
+                        <p:inputText id="level" value="#{logErrorController.selected.level}" title="#{bundle.CreateLogErrorTitle_level}" />
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_logName}" for="logName" />
+                        <p:inputText id="logName" value="#{logErrorController.selected.logName}" title="#{bundle.CreateLogErrorTitle_logName}" />
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_mensage}" for="mensage" />
+                        <p:inputTextarea rows="4" cols="30" id="mensage" value="#{logErrorController.selected.mensage}" title="#{bundle.CreateLogErrorTitle_mensage}" />
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{logErrorController.selected.fecha}" title="#{bundle.EditLogErrorTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLogErrorLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{logErrorController.selected.usuario}" title="#{bundle.CreateLogErrorTitle_usuario}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{logErrorController.create}" value="#{bundle.Save}" update="display,:LogErrorListForm:datalist,:growl" oncomplete="handleSubmit(args,'LogErrorCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LogErrorCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

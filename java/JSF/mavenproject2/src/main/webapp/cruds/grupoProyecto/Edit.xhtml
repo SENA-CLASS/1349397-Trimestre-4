@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GrupoProyectoEditDlg" widgetVar="GrupoProyectoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditGrupoProyectoTitle}">
+            <h:form id="GrupoProyectoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{grupoProyectoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditGrupoProyectoLabel_grupoProyectoPK_codigo}" for="grupoProyectoPK_codigo" />
+                        <p:inputText id="grupoProyectoPK_codigo" value="#{grupoProyectoController.selected.grupoProyectoPK.codigo}" title="#{bundle.EditGrupoProyectoTitle_grupoProyectoPK_codigo}" required="true" requiredMessage="#{bundle.EditGrupoProyectoRequiredMessage_grupoProyectoPK_codigo}"/>
+                        <p:outputLabel value="#{bundle.EditGrupoProyectoLabel_nombreProyecto}" for="nombreProyecto" />
+                        <p:inputText id="nombreProyecto" value="#{grupoProyectoController.selected.nombreProyecto}" title="#{bundle.EditGrupoProyectoTitle_nombreProyecto}" required="true" requiredMessage="#{bundle.EditGrupoProyectoRequiredMessage_nombreProyecto}"/>
+                        <p:outputLabel value="#{bundle.EditGrupoProyectoLabel_estadoGrupo}" for="estadoGrupo" />
+                        <p:inputText id="estadoGrupo" value="#{grupoProyectoController.selected.estadoGrupo}" title="#{bundle.EditGrupoProyectoTitle_estadoGrupo}" required="true" requiredMessage="#{bundle.EditGrupoProyectoRequiredMessage_estadoGrupo}"/>
+                        <p:outputLabel value="#{bundle.EditGrupoProyectoLabel_ficha}" for="ficha" />
+                        <p:selectOneMenu id="ficha" value="#{grupoProyectoController.selected.ficha}" required="true" requiredMessage="#{bundle.EditGrupoProyectoRequiredMessage_ficha}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{fichaController.itemsAvailableSelectOne}"
+                                           var="fichaItem"
+                                           itemValue="#{fichaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{grupoProyectoController.update}" value="#{bundle.Save}" update="display,:GrupoProyectoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'GrupoProyectoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="GrupoProyectoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

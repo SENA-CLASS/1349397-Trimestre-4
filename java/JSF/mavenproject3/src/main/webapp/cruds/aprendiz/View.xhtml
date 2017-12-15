@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AprendizViewDlg" widgetVar="AprendizViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAprendizTitle}">
+            <h:form id="AprendizViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{aprendizController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAprendizLabel_estado}"/>
+                        <h:outputText value="#{aprendizController.selected.estado}" title="#{bundle.ViewAprendizTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewAprendizLabel_grupoProyecto}"/>
+                        <h:outputText value="#{aprendizController.selected.grupoProyecto}" title="#{bundle.ViewAprendizTitle_grupoProyecto}"/>
+                        <h:outputText value="#{bundle.ViewAprendizLabel_cliente}"/>
+                        <h:outputText value="#{aprendizController.selected.cliente}" title="#{bundle.ViewAprendizTitle_cliente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AprendizViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
